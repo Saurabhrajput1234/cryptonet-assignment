@@ -1,0 +1,46 @@
+
+
+.profile {
+  display: flex;
+  height: 273px;
+  border: 1px solid gray;
+  width: 600px;
+  padding: 35px;
+  border-radius: 5px;
+  /* background-color: #466d6b21; */
+  -webkit-backdrop-filter: blur(42px);
+  backdrop-filter: blur(42px);
+}
+#userImage {
+  height: 227px;
+  border: 1px solid rgb(94, 83, 83);
+  padding: 4px;
+  margin-right: 43px;
+  margin-top: 20px;
+}
+.main{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+ align-items: center;
+
+}
+.edit-profile{
+  height: 30px;
+ margin: 0.5rem;
+  background: rgb(237, 237, 237);
+  padding: 0;
+  width: 100px;
+}
+
+.Dashboard{
+  background-image: url(./pics/123.jpeg);
+  background-repeat: no-repeat;
+ background-size: 100%;
+  
+}
+.profile-Details{
+  height: 45px;
+  padding: 20px;
+}
