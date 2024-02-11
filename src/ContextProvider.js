@@ -1,6 +1,5 @@
 import React, { createContext, useEffect, useState } from "react";
 
-
 export const Context = createContext({
   userData: [],
   fetching: false,
@@ -9,32 +8,32 @@ export const Context = createContext({
 const ContextProvider = ({ children }) => {
   const [userData, setUserData] = useState(null);
   const [fetching, setFetching] = useState(true);
- 
 
-
-
-
-  
   useEffect(() => {
-    setFetching(true);
-    fetch("https://randomuser.me/api/?page=1&results=1&seed=abc")
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data.results)
+    const fetchData = async () => {
+      try {
+        setFetching(true);
+        const response = await fetch(
+          "https://randomuser.me/api/?page=1&results=1&seed=abc"
+        );
+        const data = await response.json();
+        console.log(data.results);
         setUserData(data.results[0]);
         setFetching(false);
-      });
+      } catch (e) {
+        console.error("Error fetching user data:", e);
+
+      }
+    };
+
+    fetchData();
   }, []);
 
- 
-  
-  console.log(userData,"userdata")
- 
-
+  console.log(userData, "userdata");
 
   return (
     <>
-      <Context.Provider value={{ userData, fetching}}>
+      <Context.Provider value={{ userData, fetching }}>
         {children}
       </Context.Provider>
     </>
